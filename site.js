@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const ORDER_MODAL_ID = 'order-modal';
-  const pickupUrl = 'https://order.redriverrestaurants.com/order/redrivercantina-leaguecity';
-  const deliveryUrl = 'https://order.online/store/red-river-cantina-league-city/?delivery=true&hideModal=true';
+  const pickupUrl = 'https://order.redriverrestaurants.com/order/redrivercantina';
+  const deliveryUrl = 'https://order.online/store/red-river-cantina-league-city-582276?delivery=true&hideModal=true';
   const modalMarkup = `
     <div class="order-modal" id="${ORDER_MODAL_ID}" aria-hidden="true" role="dialog" aria-labelledby="order-modal-title">
       <div class="order-modal__dialog" tabindex="-1">

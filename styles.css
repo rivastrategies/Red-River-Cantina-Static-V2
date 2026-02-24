@@ -1499,13 +1499,18 @@ body {
 /* Careers page layout and form styles */
 .careers-hero {
   position: relative;
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.85), rgba(204, 0, 0, 0.75));
-  color: var(--white);
+  background-image: url('LC-location-page.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f8f9fa;
+  width: 100%;
+  min-height: 700px;
+  height: 90vh;
 }
 
 .careers-hero-overlay {
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.2));
-  padding: 6rem 0 5rem;
+  display: none;
 }
 
 .careers-hero-content {
@@ -1743,6 +1748,20 @@ body {
 }
 
 @media (max-width: 720px) {
+  .careers-hero {
+    min-height: 500px;
+    height: 80vh;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  .community-hero {
+    min-height: 350px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center center;
+  }
+
   .careers-hero-overlay {
     padding: 5rem 0 4rem;
   }
@@ -1761,6 +1780,22 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .careers-hero {
+    min-height: 400px;
+    height: 70vh;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  .community-hero {
+    min-height: 300px;
+    height: 45vh;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
 .header-story-btn {
   margin-right: 0.75rem;
   color: var(--teal-deep);
@@ -1771,6 +1806,18 @@ body {
 .header-story-btn:hover {
   background: var(--teal-deep);
   color: #ffffff;
+}
+
+.community-hero {
+  position: relative;
+  background-image: url('community.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f8f9fa;
+  width: 100%;
+  min-height: 300px;
+  height: 60vh;
 }
 
 .community-overview {
