@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const ORDER_MODAL_ID = 'order-modal';
-  const pickupUrl = 'https://order.redriverrestaurants.com/order/redrivercantina-richmond';
-  const deliveryUrl = 'https://order.online/store/red-river-cantina-richmond-25078785/?delivery=true&hideModal=true';
+  const pickupUrl = 'https://order.redriverrestaurants.com/order/redrivercantina-leaguecity';
+  const deliveryUrl = 'https://order.online/store/red-river-cantina-league-city/?delivery=true&hideModal=true';
   const modalMarkup = `
     <div class="order-modal" id="${ORDER_MODAL_ID}" aria-hidden="true" role="dialog" aria-labelledby="order-modal-title">
       <div class="order-modal__dialog" tabindex="-1">
         <button type="button" class="order-modal__close" data-modal-close aria-label="Close order options">×</button>
-        <p class="order-modal__eyebrow">Richmond, Texas</p>
+        <p class="order-modal__eyebrow">League City, Texas</p>
         <h2 class="order-modal__title" id="order-modal-title">Order Online</h2>
-        <p class="order-modal__subtitle">Choose how you would like to enjoy Red River Cantina from our Richmond location.</p>
+        <p class="order-modal__subtitle">Choose how you would like to enjoy Red River Cantina from our League City location.</p>
         <div class="order-modal__actions">
           <a class="btn btn-modern order-modal__primary" href="${pickupUrl}" target="_blank" rel="noopener">Pickup</a>
           <a class="btn btn-outline" href="${deliveryUrl}" target="_blank" rel="noopener">Delivery</a>
