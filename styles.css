@@ -1836,6 +1836,60 @@ body {
   color: #ffffff;
 }
 
+/* Sticky Order Button */
+.sticky-order-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slowFlash 3s ease-in-out infinite;
+}
+
+.sticky-order-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.7);
+  animation: none;
+}
+
+@keyframes slowFlash {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    box-shadow: 0 6px 40px rgba(220, 38, 38, 1), 0 0 60px rgba(220, 38, 38, 0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  .sticky-order-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-order-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
 .community-hero {
   position: relative;
   width: 100%;
