@@ -1476,9 +1476,20 @@ body {
   border-bottom: 2px solid transparent;
 }
 
+.mobile-menu-links a.app-download-btn {
+  padding: 0.5rem 1rem;
+  border-bottom: none;
+  color: #ffffff !important;
+}
+
 .mobile-menu-links a:active {
   color: var(--chili);
   border-bottom-color: var(--chili);
+}
+
+.mobile-menu-links a.app-download-btn:active {
+  border-bottom-color: transparent;
+  color: #ffffff !important;
 }
 
 @media (max-width: 900px) {
@@ -1749,8 +1760,9 @@ body {
 
 @media (max-width: 720px) {
   .careers-hero {
-    min-height: 500px;
-    height: 80vh;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
     background-size: contain;
     background-position: center center;
   }
@@ -1796,8 +1808,9 @@ body {
 
 @media (max-width: 480px) {
   .careers-hero {
-    min-height: 400px;
-    height: 70vh;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
     background-size: contain;
     background-position: center center;
   }
