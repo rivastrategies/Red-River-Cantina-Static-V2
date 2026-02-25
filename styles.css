@@ -1756,10 +1756,24 @@ body {
   }
 
   .community-hero {
-    min-height: 250px !important;
-    height: 40vh !important;
-    background-size: cover !important;
-    background-position: center center !important;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .community-hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .story-hero {
+    background-size: contain;
+    background-position: center center;
+    min-height: 300px;
+  }
+
+  .story-hero-overlay {
+    padding: 3rem 0;
   }
 
   .careers-hero-overlay {
@@ -1789,10 +1803,24 @@ body {
   }
 
   .community-hero {
-    min-height: 200px !important;
-    height: 35vh !important;
-    background-size: cover !important;
-    background-position: center center !important;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .community-hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .story-hero {
+    background-size: contain;
+    background-position: center center;
+    min-height: 250px;
+  }
+
+  .story-hero-overlay {
+    padding: 2.5rem 0;
   }
 }
 
@@ -1810,14 +1838,19 @@ body {
 
 .community-hero {
   position: relative;
-  background-image: url('community.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #f8f9fa;
   width: 100%;
-  min-height: 400px;
-  height: 70vh;
+  height: auto;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.community-hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  max-width: 100%;
 }
 
 .community-overview {
