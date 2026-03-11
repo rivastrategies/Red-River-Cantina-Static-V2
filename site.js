@@ -167,4 +167,131 @@ document.addEventListener('DOMContentLoaded', () => {
       openModal();
     });
   });
+
+  // Party Room Modal
+  const PARTY_MODAL_ID = 'party-modal';
+  let lastPartyFocusedElement = null;
+  let partyKeydownHandler = null;
+
+  const ensurePartyModal = () => {
+    return document.getElementById(PARTY_MODAL_ID);
+  };
+
+  const trapPartyFocus = (event) => {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    const modal = document.getElementById(PARTY_MODAL_ID);
+    if (!modal || !modal.classList.contains('is-open')) {
+      return;
+    }
+
+    const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusable = Array.from(modal.querySelectorAll(focusableSelectors)).filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+
+    if (focusable.length === 0) {
+      event.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const closePartyModal = () => {
+    const modal = document.getElementById(PARTY_MODAL_ID);
+    if (!modal) {
+      return;
+    }
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    body.style.overflow = '';
+
+    document.removeEventListener('keydown', partyKeydownHandler);
+
+    if (lastPartyFocusedElement && typeof lastPartyFocusedElement.focus === 'function') {
+      lastPartyFocusedElement.focus();
+    }
+  };
+
+  const openPartyModal = () => {
+    const modal = ensurePartyModal();
+    if (!modal) {
+      return;
+    }
+
+    lastPartyFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.style.overflow = 'hidden';
+
+    const dialog = modal.querySelector('.party-modal__dialog');
+    if (dialog) {
+      setTimeout(() => {
+        dialog.focus();
+      }, 50);
+    }
+
+    partyKeydownHandler = (event) => {
+      if (event.key === 'Escape') {
+        closePartyModal();
+        return;
+      }
+      trapPartyFocus(event);
+    };
+
+    document.addEventListener('keydown', partyKeydownHandler);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closePartyModal();
+      }
+    });
+
+    modal.querySelectorAll('[data-party-modal-close]').forEach((closeButton) => {
+      closeButton.addEventListener('click', closePartyModal);
+    });
+  };
+
+  const partyTriggers = document.querySelectorAll('[data-party-modal-trigger]');
+  partyTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openPartyModal();
+    });
+  });
+
+  // Party Room Form Submission
+  const partyRoomForm = document.getElementById('partyRoomInquiry');
+  if (partyRoomForm) {
+    partyRoomForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(partyRoomForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Here you would typically send to a backend or email service
+      // For now, we'll show a success message
+      alert(`Thank you for your inquiry! We'll contact you at ${data.email} to discuss your party room reservation.`);
+      
+      // Reset form and close modal
+      partyRoomForm.reset();
+      closePartyModal();
+    });
+  }
 });
