@@ -592,11 +592,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Catering Form Submission
   const cateringForm = document.getElementById('cateringInquiry');
   if (cateringForm) {
-    cateringForm.addEventListener('submit', (event) => {
+    cateringForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       clearFormStatus(cateringForm);
-      showFormStatus(cateringForm, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
-      cateringForm.reset();
+      
+      const formData = new FormData(cateringForm);
+      
+      try {
+        const response = await fetch(cateringForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          showFormStatus(cateringForm, 'success', 'Thanks for contacting Red River Cantina about catering. Our team will follow up shortly.');
+          cateringForm.reset();
+        } else {
+          showFormStatus(cateringForm, 'error', 'There was a problem submitting your request. Please try again or call us directly.');
+        }
+      } catch (error) {
+        showFormStatus(cateringForm, 'error', 'There was a problem submitting your request. Please try again or call us directly.');
+      }
     });
   }
 
