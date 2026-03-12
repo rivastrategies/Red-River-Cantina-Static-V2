@@ -275,18 +275,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const getOrCreateFormStatus = (form) => {
+    let statusEl = form.querySelector('.form-inline-message');
+    if (statusEl) {
+      return statusEl;
+    }
+
+    statusEl = document.createElement('div');
+    statusEl.className = 'form-inline-message';
+    statusEl.setAttribute('role', 'status');
+    statusEl.setAttribute('aria-live', 'polite');
+    statusEl.hidden = true;
+
+    const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitButton) {
+      submitButton.insertAdjacentElement('beforebegin', statusEl);
+    } else {
+      form.appendChild(statusEl);
+    }
+
+    return statusEl;
+  };
+
+  const clearFormStatus = (form) => {
+    const statusEl = form.querySelector('.form-inline-message');
+    if (!statusEl) {
+      return;
+    }
+
+    statusEl.hidden = true;
+    statusEl.textContent = '';
+    statusEl.classList.remove('is-success', 'is-error');
+  };
+
+  const showFormStatus = (form, type, message) => {
+    const statusEl = getOrCreateFormStatus(form);
+    statusEl.classList.remove('is-success', 'is-error');
+    statusEl.classList.add(type === 'error' ? 'is-error' : 'is-success');
+    statusEl.textContent = message;
+    statusEl.hidden = false;
+  };
+
   const managementForm = document.getElementById('managementContactForm');
   if (managementForm) {
     managementForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const formData = new FormData(managementForm);
-      const data = Object.fromEntries(formData.entries());
       const submitButton = managementForm.querySelector('button[type="submit"]');
       const actionUrl = managementForm.getAttribute('action');
+      clearFormStatus(managementForm);
 
       if (!actionUrl) {
-        alert('Unable to submit right now. Please try again in a moment.');
+        showFormStatus(managementForm, 'error', 'Unable to submit right now. Please try again in a moment.');
         return;
       }
 
@@ -307,11 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error('Form submission failed');
         }
 
-        alert(`Thanks, ${data.name}. Your message has been sent to management. We'll follow up at ${data.email}.`);
+        showFormStatus(managementForm, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
         managementForm.reset();
-        closeManagementModal();
       } catch (error) {
-        alert('Sorry, we could not send your message right now. Please try again.');
+        showFormStatus(managementForm, 'error', 'Sorry, we could not send your message right now. Please try again.');
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
@@ -432,18 +472,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (partyRoomForm) {
     partyRoomForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      
-      // Get form data
-      const formData = new FormData(partyRoomForm);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Here you would typically send to a backend or email service
-      // For now, we'll show a success message
-      alert(`Thank you for your inquiry! We'll contact you at ${data.email} to discuss your party room reservation.`);
-      
-      // Reset form and close modal
+      clearFormStatus(partyRoomForm);
+      showFormStatus(
+        partyRoomForm,
+        'success',
+        'Thanks for contacting Red River BBQ about the Party Room. Our team will follow up shortly.'
+      );
       partyRoomForm.reset();
-      closePartyModal();
     });
   }
 
@@ -559,18 +594,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cateringForm) {
     cateringForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      
-      // Get form data
-      const formData = new FormData(cateringForm);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Here you would typically send to a backend or email service
-      // For now, we'll show a success message
-      alert(`Thank you for your catering request! We'll contact you at ${data.email} to create your custom proposal.`);
-      
-      // Reset form and close modal
+      clearFormStatus(cateringForm);
+      showFormStatus(cateringForm, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
       cateringForm.reset();
-      closeCateringModal();
     });
   }
+
+  const standardForms = document.querySelectorAll('.career-application-form');
+  standardForms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      clearFormStatus(form);
+      showFormStatus(form, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
+      form.reset();
+    });
+  });
 });

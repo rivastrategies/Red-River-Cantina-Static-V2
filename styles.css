@@ -1089,6 +1089,27 @@ body {
   justify-content: center;
 }
 
+.form-inline-message {
+  margin: 0.75rem 0 0.6rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.85rem 0.95rem;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.form-inline-message.is-success {
+  background: #e9f5ed;
+  border-color: #b6dbc3;
+  color: #1f7a45;
+}
+
+.form-inline-message.is-error {
+  background: #fcecea;
+  border-color: #efb5ad;
+  color: #a2332b;
+}
+
 .info-band,
 .brand-footer {
   background: linear-gradient(180deg, var(--teal-footer), var(--teal-footer-dark));
