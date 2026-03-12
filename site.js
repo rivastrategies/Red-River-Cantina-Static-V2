@@ -294,4 +294,131 @@ document.addEventListener('DOMContentLoaded', () => {
       closePartyModal();
     });
   }
+
+  // Catering Modal
+  const CATERING_MODAL_ID = 'catering-modal';
+  let lastCateringFocusedElement = null;
+  let cateringKeydownHandler = null;
+
+  const ensureCateringModal = () => {
+    return document.getElementById(CATERING_MODAL_ID);
+  };
+
+  const trapCateringFocus = (event) => {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    const modal = document.getElementById(CATERING_MODAL_ID);
+    if (!modal || !modal.classList.contains('is-open')) {
+      return;
+    }
+
+    const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusable = Array.from(modal.querySelectorAll(focusableSelectors)).filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+
+    if (focusable.length === 0) {
+      event.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const closeCateringModal = () => {
+    const modal = document.getElementById(CATERING_MODAL_ID);
+    if (!modal) {
+      return;
+    }
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    body.style.overflow = '';
+
+    document.removeEventListener('keydown', cateringKeydownHandler);
+
+    if (lastCateringFocusedElement && typeof lastCateringFocusedElement.focus === 'function') {
+      lastCateringFocusedElement.focus();
+    }
+  };
+
+  const openCateringModal = () => {
+    const modal = ensureCateringModal();
+    if (!modal) {
+      return;
+    }
+
+    lastCateringFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.style.overflow = 'hidden';
+
+    const dialog = modal.querySelector('.catering-modal__dialog');
+    if (dialog) {
+      setTimeout(() => {
+        dialog.focus();
+      }, 50);
+    }
+
+    cateringKeydownHandler = (event) => {
+      if (event.key === 'Escape') {
+        closeCateringModal();
+        return;
+      }
+      trapCateringFocus(event);
+    };
+
+    document.addEventListener('keydown', cateringKeydownHandler);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeCateringModal();
+      }
+    });
+
+    modal.querySelectorAll('[data-catering-modal-close]').forEach((closeButton) => {
+      closeButton.addEventListener('click', closeCateringModal);
+    });
+  };
+
+  const cateringTriggers = document.querySelectorAll('[data-catering-modal-trigger]');
+  cateringTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openCateringModal();
+    });
+  });
+
+  // Catering Form Submission
+  const cateringForm = document.getElementById('cateringInquiry');
+  if (cateringForm) {
+    cateringForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(cateringForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Here you would typically send to a backend or email service
+      // For now, we'll show a success message
+      alert(`Thank you for your catering request! We'll contact you at ${data.email} to create your custom proposal.`);
+      
+      // Reset form and close modal
+      cateringForm.reset();
+      closeCateringModal();
+    });
+  }
 });

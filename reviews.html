@@ -11,17 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../cantina-theme.css">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./cantina-theme.css" />
     <style>
         .reviews-page {
-            padding: 2rem 0 3rem;
+            margin: 0 !important;
+            padding: 0 !important;
             background: #f8f9fa;
         }
         .reviews-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 3rem 1rem;
         }
         .reviews-hero {
             position: relative;
@@ -31,7 +32,7 @@
                 rgba(36, 22, 22, 0.62) 52%,
                 rgba(173, 20, 20, 0.82) 100%
             ),
-            url('../community.jpg') center center / cover no-repeat;
+            url('community.jpg') center center / cover no-repeat;
             color: white;
             min-height: 620px;
             display: flex;
@@ -80,70 +81,59 @@
             line-height: 1.3;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
         }
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .reviews-header h1 {
-            color: var(--accent-gold, #d4a574);
-            margin-bottom: 1rem;
-            font-family: "Oswald", sans-serif;
-            font-size: clamp(2.4rem, 4vw + 1rem, 3.4rem);
-            text-transform: uppercase;
-        }
-        .rating-summary {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .rating-summary .stars {
-            color: #ffa500;
-            font-size: 1.5rem;
-        }
         .jump-links {
             background: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            border: 3px solid var(--accent-gold, #d4a574);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .jump-links h2 {
             margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--text-dark, #333);
+            margin-bottom: 1.5rem;
+            color: var(--teal-deep, #0f766e);
             font-family: "Oswald", sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .jump-links ul {
-            list-style: none;
-            padding: 0;
+        .jump-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem;
+            gap: 1rem;
         }
-        .jump-links a {
-            color: var(--accent-gold, #d4a574);
+        .jump-btn {
+            background: linear-gradient(135deg, #c9984a 0%, #d4a574 100%);
+            color: white;
             text-decoration: none;
-            padding: 0.5rem;
-            display: block;
-            border-radius: 6px;
-            transition: background-color 0.2s;
-            font-weight: 500;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: "Open Sans", sans-serif;
         }
-        .jump-links a:hover {
-            background-color: #f8f9fa;
-            color: var(--teal-deep, #0f766e);
+        .jump-btn:hover {
+            background: linear-gradient(135deg, #b8873b 0%, #c9984a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .reviews-section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         .reviews-section h2 {
-            color: var(--text-dark, #333);
-            border-bottom: 2px solid var(--accent-gold, #d4a574);
-            padding-bottom: 0.5rem;
+            color: var(--teal-deep, #0f766e);
+            border-bottom: 3px solid var(--accent-gold, #d4a574);
+            padding-bottom: 0.75rem;
             margin-bottom: 2rem;
             font-family: "Oswald", sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .review-cards {
             display: grid;
@@ -185,7 +175,7 @@
             align-items: flex-end;
             flex-shrink: 0;
         }
-        .stars {
+        .review-rating .stars {
             color: #ffa500;
             font-size: 1.2rem;
             margin-bottom: 0.25rem;
@@ -198,46 +188,6 @@
             line-height: 1.6;
             color: #444;
             margin: 0;
-        }
-        .menu-favorites {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        .menu-favorites h2 {
-            color: var(--accent-gold, #d4a574);
-            margin-bottom: 1rem;
-            font-family: "Oswald", sans-serif;
-        }
-        .favorites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .favorite-item {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 500;
-        }
-        .allergen-notice {
-            background: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-        }
-        .allergen-notice h4 {
-            color: #856404;
-            margin: 0 0 0.5rem 0;
-        }
-        .allergen-notice p {
-            color: #856404;
-            margin: 0;
-            font-size: 0.9rem;
         }
         .back-home {
             text-align: center;
@@ -277,8 +227,8 @@
             .review-rating {
                 align-items: flex-start;
             }
-            .favorites-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .jump-buttons {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -297,27 +247,28 @@
       </div>
       <div class="branding-bar">
         <div class="container branding-inner">
-          <a class="logo" href="../index.html" aria-label="Red River Cantina Home">
-            <img src="../RRCBrand.png" alt="Red River Cantina" style="height: 80px; display: block;">
+          <a class="logo" href="index.html" aria-label="Red River Cantina Home">
+            <img src="RRCBrand.png" alt="Red River Cantina" style="height: 80px; display: block;">
           </a>
           <nav aria-label="Primary Navigation">
             <ul class="nav-links">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Menus</a>
                 <ul class="dropdown-menu">
-                  <li><a href="../dine-in-menu.html">DINE-IN MENU</a></li>
-                  <li><a href="../to-go-menu.html">TO-GO MENU</a></li>
-                  <li><a href="../gluten-free-menu.html">GLUTEN FREE | VEGETARIAN</a></li>
-                  <li><a href="../bar-menu.html">BAR MENU</a></li>
+                  <li><a href="dine-in-menu.html">DINE-IN MENU</a></li>
+                  <li><a href="to-go-menu.html">TO-GO MENU</a></li>
+                  <li><a href="gluten-free-menu.html">GLUTEN FREE | VEGETARIAN</a></li>
+                  <li><a href="bar-menu.html">BAR MENU</a></li>
                 </ul>
               </li>
-              <li><a href="../catering.html">Catering</a></li>
-              <li><a href="../private-events.html">Party Room</a></li>
-              <li><a href="../careers.html">Careers</a></li>
-              <li><a href="../community.html">Community</a></li>
+              <li><a href="catering.html">Catering</a></li>
+              <li><a href="private-events.html">Party Room</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="reviews.html">Reviews</a></li>
             </ul>
           </nav>
-          <a href="../our-story.html" class="btn btn-outline btn-sm header-story-btn">Our Story</a>
+                    <a href="our-story.html" class="btn btn-outline btn-sm header-story-btn">Our Story</a>
           <a href="#" class="btn btn-modern btn-sm" data-order-modal-trigger>Order Online</a>
           <button class="mobile-menu-toggle" aria-label="Toggle Menu">
             <span></span>
@@ -331,21 +282,22 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay">
       <div class="mobile-menu-header">
-        <a href="../index.html" class="mobile-menu-logo">
-          <img src="../RRCBrand.png" alt="Red River Cantina" style="height: 50px;">
+        <a href="index.html" class="mobile-menu-logo">
+          <img src="RRCBrand.png" alt="Red River Cantina" style="height: 50px;">
         </a>
         <button class="mobile-menu-close" aria-label="Close Menu">×</button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="../our-story.html" class="mobile-menu-item">Our Story</a>
-        <a href="../dine-in-menu.html" class="mobile-menu-item">Dine-In Menu</a>
-        <a href="../to-go-menu.html" class="mobile-menu-item">To-Go Menu</a>
-        <a href="../gluten-free-menu.html" class="mobile-menu-item">Gluten Free | Vegetarian</a>
-        <a href="../bar-menu.html" class="mobile-menu-item">Bar Menu</a>
-        <a href="../catering.html" class="mobile-menu-item">Catering</a>
-        <a href="../private-events.html" class="mobile-menu-item">Party Room</a>
-        <a href="../careers.html" class="mobile-menu-item">Careers</a>
-        <a href="../community.html" class="mobile-menu-item">Community</a>
+        <a href="our-story.html" class="mobile-menu-item">Our Story</a>
+        <a href="dine-in-menu.html" class="mobile-menu-item">Dine-In Menu</a>
+        <a href="to-go-menu.html" class="mobile-menu-item">To-Go Menu</a>
+        <a href="gluten-free-menu.html" class="mobile-menu-item">Gluten Free | Vegetarian</a>
+        <a href="bar-menu.html" class="mobile-menu-item">Bar Menu</a>
+        <a href="catering.html" class="mobile-menu-item">Catering</a>
+        <a href="private-events.html" class="mobile-menu-item">Party Room</a>
+        <a href="careers.html" class="mobile-menu-item">Careers</a>
+        <a href="community.html" class="mobile-menu-item">Community</a>
+        <a href="reviews.html" class="mobile-menu-item">Reviews</a>
       </nav>
       <div class="mobile-menu-footer">
         <a href="#" class="mobile-menu-cta" data-order-modal-trigger>Order Online</a>
@@ -373,48 +325,39 @@
             </div>
         </section>
         <div class="container reviews-container">
-            <header class="reviews-header">
-                <h1>Customer Reviews</h1>
-                <div class="rating-summary">
-                    <span class="stars">★★★★★</span>
-                    <strong>4.3</strong> out of 5 stars based on <strong>1,389</strong> Google reviews
-                </div>
-            </header>
-
             <nav class="jump-links" aria-label="Page navigation">
-                <h2>Quick Navigation</h2>
-                <ul>
-                    <li><a href="#featured-reviews">Featured Reviews</a></li>
-                    <li><a href="#menu-favorites">Menu Favorites</a></li>
-                    <li><a href="#service-mentions">Service Mentions</a></li>
-                    <li><a href="#more-reviews">More Reviews</a></li>
-                </ul>
+                <h2>QUICK NAVIGATION</h2>
+                <div class="jump-buttons">
+                    <a href="#featured-reviews" class="jump-btn">Featured Reviews</a>
+                    <a href="#service-mentions" class="jump-btn">Service Mentions</a>
+                    <a href="#more-reviews" class="jump-btn">More Reviews</a>
+                </div>
             </nav>
 
-            <section id="menu-favorites" class="menu-favorites">
-                <h2>Menu Favorites Mentioned in Reviews</h2>
-                <div class="favorites-grid">
-                    <div class="favorite-item">🌮 <strong>Fajitas</strong></div>
-                    <div class="favorite-item">🍹 <strong>Top Shelf Margaritas</strong></div>
-                    <div class="favorite-item">🍤 <strong>Shrimp Enchiladas</strong></div>
-                    <div class="favorite-item">🐔 <strong>Pollo Marisco</strong></div>
-                    <div class="favorite-item">🥑 <strong>Chips & Salsa</strong></div>
-                    <div class="favorite-item">🥩 <strong>Steak Fajitas</strong></div>
-                    <div class="favorite-item">🧀 <strong>Cheese Dip</strong></div>
-                    <div class="favorite-item">🥑 <strong>Guacamole</strong></div>
-                    <div class="favorite-item">🍽️ <strong>Combination Platters</strong></div>
-                    <div class="favorite-item">🍺 <strong>Cold Beer</strong></div>
-                </div>
-            </section>
-
             <section id="featured-reviews" class="reviews-section">
-                <h2>Featured Reviews</h2>
+                <h2>FEATURED REVIEWS</h2>
                 <div class="review-cards">
                     <article class="review-card">
                         <header class="review-header">
                             <div class="reviewer-info">
+                                <h3>Donald Cook</h3>
+                                <p class="reviewer-meta">Local Guide · 44 reviews · 16 photos</p>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">★★★★★</div>
+                                <time class="review-date" datetime="2024-06-01">8 months ago</time>
+                            </div>
+                        </header>
+                        <blockquote class="review-text">
+                            This is by far my most favorite Tex-Mex restaurant in the Richmond area. The fajitas are to die for, and the rest of the menu is not bad at all. I am a big fan of the top shelf margaritas. Love the atmosphere and service we receive. I've never had a complaint. This is an awesome place to meet up for after work drinks and some appetizers to catch up with each other and have a few laughs. Highly recommend.
+                        </blockquote>
+                    </article>
+
+                    <article class="review-card">
+                        <header class="review-header">
+                            <div class="reviewer-info">
                                 <h3>Jack Price</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 28 reviews</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
@@ -430,11 +373,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Priscilla Short</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 52 reviews · 8 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-02-01">1 month ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -446,11 +389,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>George Vernau</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 36 reviews · 22 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-01-15">2 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -461,17 +404,17 @@
             </section>
 
             <section id="service-mentions" class="reviews-section">
-                <h2>Service Mentions</h2>
+                <h2>SERVICE MENTIONS</h2>
                 <div class="review-cards">
                     <article class="review-card">
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Michele Rodriguez</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 31 reviews · 12 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-01-20">2 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -483,11 +426,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>San Juana Puentes</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 18 reviews</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-02-15">3 weeks ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -499,11 +442,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Larry Mouser</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 64 reviews · 24 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-01-01">2 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -515,11 +458,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Gabe Gonzales</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 42 reviews · 8 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-02-10">1 month ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -531,11 +474,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Stephen Hasara</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 56 reviews · 15 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-01-10">2 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -547,11 +490,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Lexi Cario</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 29 reviews · 5 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-02-05">1 month ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -658,7 +601,7 @@
             </section>
 
             <section id="more-reviews" class="reviews-section">
-                <h2>More Reviews</h2>
+                <h2>MORE REVIEWS</h2>
                 <div class="review-cards">
                     <article class="review-card">
                         <header class="review-header">
@@ -696,11 +639,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Theresa Tompkins</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 22 reviews · 11 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-01-25">1 month ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -712,11 +655,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Chris Broussard</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 51 reviews</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2024-11-20">4 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -728,11 +671,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Jennifer May</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 33 reviews · 7 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2024-12-05">3 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -744,11 +687,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Danna Jae</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 48 reviews · 19 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2025-02-20">2 weeks ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -776,11 +719,11 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Kelly Howells</h3>
-                                <p class="reviewer-meta">Google Review</p>
+                                <p class="reviewer-meta">Local Guide · 37 reviews · 20 photos</p>
                             </div>
                             <div class="review-rating">
                                 <div class="stars">★★★★★</div>
-                                <time class="review-date" datetime="2025-02-01">Recently</time>
+                                <time class="review-date" datetime="2024-12-15">3 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
@@ -809,45 +752,78 @@
             </section>
 
             <div class="back-home">
-                <a href="../index.html">← Back to Homepage</a>
+                <a href="index.html">← Back to Homepage</a>
             </div>
 
             <p class="reviews-disclaimer">Reviews sourced from Google; displayed verbatim.</p>
         </div>
     </main>
 
+    <section class="info-band" aria-label="Location and Rewards">
+      <div class="container info-grid">
+        <article class="tile visit-tile">
+          <p class="tile-title">Visit Us</p>
+          <h3>Red River Cantina</h3>
+          <p>League City, Texas</p>
+          <p>1911 E. Main St. Suite A</p>
+          <p>League City, TX 77573</p>
+          <p>281-557-8156</p>
+          <p class="hours">Sunday – Thursday | 11:00 am – 9:00pm · Friday &amp; Saturday | 11:00 am – 10:00pm</p>
+          <a href="https://www.facebook.com/people/Red-River-Cantina-League-City/100061811121727/" class="social-link">Follow Us</a>
+        </article>
+
+        <article class="tile reward-tile">
+          <div class="reward-icon">🎁</div>
+          <h3>Rewards Program</h3>
+          <p>Earn points, unlock rewards, get a birthday bonus.</p>
+          <a href="https://www.toasttab.com/redrivercantina/rewardsSignup" class="join-btn">Join Now</a>
+        </article>
+
+        <article class="tile map-tile" aria-label="Map Preview">
+          <iframe
+            title="Red River Cantina League City Map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=1911+E+Main+St+Suite+A,+League+City,+TX+77573&output=embed"
+            style="width: 100%; height: 100%; min-height: 200px; border: 0; border-radius: 8px;"
+          ></iframe>
+        </article>
+      </div>
+    </section>
+
     <footer class="brand-footer">
       <div class="container footer-brands">
         <div class="footer-brand-item">
-          <img src="../rrbbqLogo.png" alt="Red River Bar & Grill" class="footer-brand-logo">
+          <img src="rrbbqLogo.png" alt="Red River Bar & Grill" class="footer-brand-logo">
           <p class="footer-brand-name">RED RIVER BAR & GRILL</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
         </div>
         <div class="footer-brand-item">
-          <img src="../rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo">
+          <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
         </div>
         <div class="footer-brand-item">
-          <img src="../rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo">
+          <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">RICHMOND TX</p>
         </div>
         <div class="footer-brand-item">
-          <img src="../rrbbqbLogo.png" alt="Red River Bar-B-Que & Burger" class="footer-brand-logo">
+          <img src="rrbbqbLogo.png" alt="Red River Bar-B-Que & Burger" class="footer-brand-logo">
           <p class="footer-brand-name">RED RIVER BBQ & BURGER</p>
           <p class="footer-brand-location">KATY TX</p>
         </div>
         <div class="footer-brand-item">
-          <img src="../kiersh co white trans.png" alt="Kiersh & Co." class="footer-brand-logo">
+          <img src="kiersh co white trans.png" alt="Kiersh & Co." class="footer-brand-logo">
           <p class="footer-brand-name">KIERSH & CO.</p>
           <p class="footer-brand-location">CATERING & EVENTS</p>
         </div>
       </div>
       <div class="container footer-links">
-        <a href="../careers.html" class="footer-link-btn">CAREERS</a>
-        <a href="../catering.html" class="footer-link-btn">CATERING</a>
-        <a href="../community.html" class="footer-link-btn">COMMUNITY</a>
+        <a href="careers.html" class="footer-link-btn">CAREERS</a>
+        <a href="catering.html" class="footer-link-btn">CATERING</a>
+        <a href="community.html" class="footer-link-btn">COMMUNITY</a>
+        <a href="reviews.html" class="footer-link-btn">REVIEWS</a>
         <a href="https://www.toasttab.com/redrivercantina/marketing-signup" class="footer-link-btn">E-CLUB</a>
         <a class="footer-link-btn footer-facebook" href="https://www.facebook.com/people/Red-River-Cantina-League-City/100061811121727/" aria-label="Follow Red River Cantina on Facebook">
           <span class="footer-icon" aria-hidden="true">
@@ -860,7 +836,7 @@
       </div>
     </footer>
 
-    <script src="../site.js"></script>
+    <script src="site.js"></script>
 
     <script type="application/ld+json">
     {

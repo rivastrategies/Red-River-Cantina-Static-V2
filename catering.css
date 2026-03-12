@@ -823,10 +823,8 @@
 
 /* Party Modal Form Styles */
 .party-modal__dialog {
-  max-width: 700px !important;
-  max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: min(600px, 100%) !important;
+  max-width: 600px !important;
 }
 
 .party-modal__form {
@@ -890,6 +888,119 @@
   }
 }
 
+/* Catering Modal Styles */
+.catering-modal__dialog {
+  width: min(700px, 100%);
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: left;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for catering modal */
+.catering-modal__dialog::-webkit-scrollbar {
+  width: 8px;
+}
+
+.catering-modal__dialog::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.catering-modal__dialog::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.catering-modal__dialog::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.catering-modal__dialog .order-modal__eyebrow,
+.catering-modal__dialog .order-modal__title {
+  text-align: center;
+}
+
+.catering-modal__dialog .order-modal__subtitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.catering-modal__form {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.catering-modal__form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.catering-modal__form .form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.catering-modal__form .form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2a3a45;
+  font-size: 0.95rem;
+}
+
+.catering-modal__form input,
+.catering-modal__form select,
+.catering-modal__form textarea {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.catering-modal__form input:focus,
+.catering-modal__form select:focus,
+.catering-modal__form textarea:focus {
+  outline: none;
+  border-color: var(--chili);
+}
+
+.catering-modal__form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.catering-modal__form .btn {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .catering-modal__form .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .catering-modal__dialog {
+    padding: 1.5rem !important;
+    width: 100%;
+    max-height: 85vh;
+  }
+}
+
+@media (max-width: 520px) {
+  .catering-modal__dialog {
+    padding: 2rem 1.5rem !important;
+    max-height: 80vh;
+  }
+}
+
 /* Inquiry Form Styles (legacy - can be removed if not used elsewhere) */
 .inquiry-form {
   max-width: 800px;
@@ -935,6 +1046,61 @@
 .form-group textarea {
   resize: vertical;
   min-height: 100px;
+}
+
+/* Section Dividers */
+.catering-section-divider {
+  background: linear-gradient(135deg, #8B0000 0%, #C41E3A 100%);
+  padding: 4rem 0;
+  margin: 3rem 0 2rem;
+  text-align: center;
+}
+
+.section-main-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .catering-section-divider {
+    padding: 3rem 0;
+  }
+  
+  .section-main-title {
+    font-size: 2.25rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catering-section-divider {
+    padding: 2.5rem 0;
+  }
+  
+  .section-main-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
 }
 
 .inquiry-form .btn {
