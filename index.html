@@ -294,6 +294,7 @@
                   <a href="bar-menu.html">Bar Menu</a>
                   <a href="catering.html">Catering</a>
                   <a href="#" data-order-modal-trigger>Order Online</a>
+                  <a href="#" data-management-modal-trigger>Questions or Concerns?</a>
                   <a href="careers.html">Careers</a>
                   <a href="community.html">Community</a>
                 </div>
@@ -457,6 +458,31 @@
     </footer>
 
     <a href="#" class="sticky-order-btn" data-order-modal-trigger="" aria-label="Order Online">Order Online</a>
+
+    <div class="order-modal management-modal" id="management-modal" aria-hidden="true" role="dialog" aria-labelledby="management-modal-title">
+      <div class="order-modal__dialog management-modal__dialog" tabindex="-1">
+        <button type="button" class="order-modal__close" data-management-modal-close aria-label="Close contact form">×</button>
+        <p class="order-modal__eyebrow">Contact Management</p>
+        <h2 class="order-modal__title" id="management-modal-title">Questions or Concerns?</h2>
+        <p class="order-modal__subtitle">Send us a quick message and our management team will follow up.</p>
+
+        <form id="managementContactForm" class="management-form">
+          <label for="managementName">Name</label>
+          <input id="managementName" name="name" type="text" required>
+
+          <label for="managementEmail">Email</label>
+          <input id="managementEmail" name="email" type="email" required>
+
+          <label for="managementPhone">Phone (optional)</label>
+          <input id="managementPhone" name="phone" type="tel">
+
+          <label for="managementMessage">Message</label>
+          <textarea id="managementMessage" name="message" rows="4" required></textarea>
+
+          <button type="submit" class="btn btn-modern">Send Message to Management</button>
+        </form>
+      </div>
+    </div>
 
     <script src="site.js"></script>
   </body>

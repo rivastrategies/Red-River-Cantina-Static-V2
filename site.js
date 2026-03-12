@@ -168,6 +168,128 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Management Contact Modal
+  const MANAGEMENT_MODAL_ID = 'management-modal';
+  let lastManagementFocusedElement = null;
+  let managementKeydownHandler = null;
+
+  const ensureManagementModal = () => {
+    return document.getElementById(MANAGEMENT_MODAL_ID);
+  };
+
+  const trapManagementFocus = (event) => {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    const modal = document.getElementById(MANAGEMENT_MODAL_ID);
+    if (!modal || !modal.classList.contains('is-open')) {
+      return;
+    }
+
+    const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusable = Array.from(modal.querySelectorAll(focusableSelectors)).filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+
+    if (focusable.length === 0) {
+      event.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const closeManagementModal = () => {
+    const modal = document.getElementById(MANAGEMENT_MODAL_ID);
+    if (!modal) {
+      return;
+    }
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    body.style.overflow = '';
+
+    document.removeEventListener('keydown', managementKeydownHandler);
+
+    if (lastManagementFocusedElement && typeof lastManagementFocusedElement.focus === 'function') {
+      lastManagementFocusedElement.focus();
+    }
+  };
+
+  const openManagementModal = () => {
+    const modal = ensureManagementModal();
+    if (!modal) {
+      return;
+    }
+
+    lastManagementFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.style.overflow = 'hidden';
+
+    const firstInput = modal.querySelector('input, textarea, button');
+    if (firstInput) {
+      setTimeout(() => {
+        firstInput.focus();
+      }, 50);
+    }
+
+    managementKeydownHandler = (event) => {
+      if (event.key === 'Escape') {
+        closeManagementModal();
+        return;
+      }
+      trapManagementFocus(event);
+    };
+
+    document.addEventListener('keydown', managementKeydownHandler);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeManagementModal();
+      }
+    });
+
+    modal.querySelectorAll('[data-management-modal-close]').forEach((closeButton) => {
+      closeButton.addEventListener('click', closeManagementModal);
+    });
+  };
+
+  const managementTriggers = document.querySelectorAll('[data-management-modal-trigger]');
+  managementTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openManagementModal();
+    });
+  });
+
+  const managementForm = document.getElementById('managementContactForm');
+  if (managementForm) {
+    managementForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(managementForm);
+      const data = Object.fromEntries(formData.entries());
+
+      alert(`Thanks, ${data.name}. Your message has been sent to management. We'll follow up at ${data.email}.`);
+
+      managementForm.reset();
+      closeManagementModal();
+    });
+  }
+
   // Party Room Modal
   const PARTY_MODAL_ID = 'party-modal';
   let lastPartyFocusedElement = null;

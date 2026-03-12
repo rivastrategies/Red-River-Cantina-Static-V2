@@ -1043,6 +1043,52 @@ body {
   }
 }
 
+.management-modal__dialog {
+  text-align: left;
+}
+
+.management-form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.management-form label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--teal-footer);
+  font-weight: 700;
+}
+
+.management-form input,
+.management-form textarea {
+  width: 100%;
+  border: 1px solid #d8e0e4;
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  color: #1f3043;
+  background: #ffffff;
+}
+
+.management-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.management-form input:focus,
+.management-form textarea:focus {
+  outline: none;
+  border-color: var(--teal-mid);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+}
+
+.management-form .btn {
+  margin-top: 0.4rem;
+  width: 100%;
+  justify-content: center;
+}
+
 .info-band,
 .brand-footer {
   background: linear-gradient(180deg, var(--teal-footer), var(--teal-footer-dark));
