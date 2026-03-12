@@ -470,15 +470,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Party Room Form Submission
   const partyRoomForm = document.getElementById('partyRoomInquiry');
   if (partyRoomForm) {
-    partyRoomForm.addEventListener('submit', (event) => {
+    partyRoomForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       clearFormStatus(partyRoomForm);
-      showFormStatus(
-        partyRoomForm,
-        'success',
-        'Thanks for contacting Red River BBQ about the Party Room. Our team will follow up shortly.'
-      );
-      partyRoomForm.reset();
+      
+      const formData = new FormData(partyRoomForm);
+      
+      try {
+        const response = await fetch(partyRoomForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          showFormStatus(
+            partyRoomForm,
+            'success',
+            'Thanks for contacting Red River BBQ about the Party Room. Our team will follow up shortly.'
+          );
+          partyRoomForm.reset();
+        } else {
+          showFormStatus(partyRoomForm, 'error', 'There was a problem submitting your request. Please try again or call us directly.');
+        }
+      } catch (error) {
+        showFormStatus(partyRoomForm, 'error', 'There was a problem submitting your request. Please try again or call us directly.');
+      }
     });
   }
 
