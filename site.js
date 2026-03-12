@@ -277,16 +277,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const managementForm = document.getElementById('managementContactForm');
   if (managementForm) {
-    managementForm.addEventListener('submit', (event) => {
+    managementForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const formData = new FormData(managementForm);
       const data = Object.fromEntries(formData.entries());
+      const submitButton = managementForm.querySelector('button[type="submit"]');
+      const actionUrl = managementForm.getAttribute('action');
 
-      alert(`Thanks, ${data.name}. Your message has been sent to management. We'll follow up at ${data.email}.`);
+      if (!actionUrl) {
+        alert('Unable to submit right now. Please try again in a moment.');
+        return;
+      }
 
-      managementForm.reset();
-      closeManagementModal();
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      try {
+        const response = await fetch(actionUrl, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Form submission failed');
+        }
+
+        alert(`Thanks, ${data.name}. Your message has been sent to management. We'll follow up at ${data.email}.`);
+        managementForm.reset();
+        closeManagementModal();
+      } catch (error) {
+        alert('Sorry, we could not send your message right now. Please try again.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
     });
   }
 
