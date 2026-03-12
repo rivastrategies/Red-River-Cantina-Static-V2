@@ -640,11 +640,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const standardForms = document.querySelectorAll('.career-application-form');
   standardForms.forEach((form) => {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       clearFormStatus(form);
-      showFormStatus(form, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
-      form.reset();
+      
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          showFormStatus(form, 'success', 'Thanks for contacting Red River Cantina. Our team will follow up shortly.');
+          form.reset();
+        } else {
+          showFormStatus(form, 'error', 'There was a problem submitting your application. Please try again or call us directly.');
+        }
+      } catch (error) {
+        showFormStatus(form, 'error', 'There was a problem submitting your application. Please try again or call us directly.');
+      }
     });
   });
 });
