@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,106 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="rrcLogo (1).png" />
     <link rel="apple-touch-icon" href="rrcLogo (1).png" />
+    
+    <!-- Structured Data - Restaurant with Reviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Red River Cantina - League City",
+      "image": "https://redrivercantina.com/leaguecity/RRCBrand.png",
+      "url": "https://redrivercantina.com/leaguecity/",
+      "telephone": "+1-281-724-8884",
+      "priceRange": "$$",
+      "servesCuisine": ["Tex-Mex", "Mexican"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2400 Gulf Freeway S",
+        "addressLocality": "League City",
+        "addressRegion": "TX",
+        "postalCode": "77573",
+        "addressCountry": "US"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.3",
+        "reviewCount": "1389",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Donald Cook"},
+          "datePublished": "2024-06-01",
+          "reviewBody": "This is by far my most favorite Tex-Mex restaurant in the Richmond area. The fajitas are to die for, and the rest of the menu is not bad at all. I am a big fan of the top shelf margaritas. Love the atmosphere and service we receive. Highly recommend.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Jack Price"},
+          "datePublished": "2025-02-01",
+          "reviewBody": "I have been here twice and honestly everything has been amazing from the service to the food. I cannot express how impressed I have been with my visits. I live an hour away and will definitely continue to come out this way to enjoy this spot. A MUST TRY.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Priscilla Short"},
+          "datePublished": "2025-02-01",
+          "reviewBody": "Best Tex Mex we've had out here yet! So close to home and the ambiance is great, it's lively and always playing music and sports. Family friendly and great for a date night. We usually order the fajitas and their margs have different variety of flavors.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "George Vernau"},
+          "datePublished": "2025-01-15",
+          "reviewBody": "Red River Cantina has been one of my favorite restaurants for a while now. It has lots of available seating, and the interior is decorated nicely. The service here is great. I ordered the Brisket Enchiladas, two enchiladas filled with warm brisket and topped with sour cream, a subtle barbecue sauce, and chopped-up avocado. Overall, this is a restaurant that you must try!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Michele Rodriguez"},
+          "datePublished": "2025-01-20",
+          "reviewBody": "I had the tacos al carbon and thought they were wonderful! The beef was full of flavor, and the homemade tortillas were fresh, warm and delicious. My husband had the fish tacos, and he loved them. Excellent service. We will definitely return!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Gabe Gonzales"},
+          "datePublished": "2025-02-10",
+          "reviewBody": "I had a great experience at this Red River Cantina Restaurant! The food was absolutely delicious � the fajitas were sizzling and full of flavor, and the homemade tortillas made all the difference. I highly recommend coming here!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Stephen Hasara"},
+          "datePublished": "2025-01-10",
+          "reviewBody": "Been here only one time prior, was immediately greeted warmly. Made to feel like we mattered. The food was amazing, got combo fajitas for 2, queso was amazing! Also you have got to try the Habanero salsa if you want an extra kick! Great place great staff!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Lexi Cario"},
+          "datePublished": "2025-02-05",
+          "reviewBody": "If you're looking for a delicious Tex-Mex meal, look no further than Red River Cantina! The service was top-notch. The fajitas were perfectly cooked and seasoned to perfection. The mojitos were refreshing and the sopapillas for dessert were simply divine.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://redrivercantina.com/"},
+        {"@type": "ListItem", "position": 2, "name": "League City", "item": "https://redrivercantina.com/leaguecity/"},
+        {"@type": "ListItem", "position": 3, "name": "Reviews", "item": "https://redrivercantina.com/leaguecity/reviews/"}
+      ]
+    }
+    </script>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -299,7 +399,7 @@
         <a href="index.html" class="mobile-menu-logo">
           <img src="RRCBrand.png" alt="Red River Cantina" style="height: 50px;" decoding="async">
         </a>
-        <button class="mobile-menu-close" aria-label="Close Menu">×</button>
+        <button class="mobile-menu-close" aria-label="Close Menu">�</button>
       </div>
       <nav class="mobile-menu-nav">
         <a href="../../index.html" class="mobile-menu-item">Locations</a>
@@ -332,7 +432,7 @@
                 <div class="container reviews-hero-content">
                     <h1 id="reviews-hero-title">What Our Guests Are Saying</h1>
                     <div class="hero-rating">
-                        <span class="hero-stars">★★★★★</span>
+                        <span class="hero-stars">?????</span>
                         <p><strong>4.3 out of 5 stars</strong> from over 1,389 Google reviews</p>
                     </div>
                     <p class="hero-tagline">Authentic Mexican style that League City, TX loves</p>
@@ -356,10 +456,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Donald Cook</h3>
-                                <p class="reviewer-meta">Local Guide · 44 reviews · 16 photos</p>
+                                <p class="reviewer-meta">Local Guide � 44 reviews � 16 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2024-06-01">8 months ago</time>
                             </div>
                         </header>
@@ -372,10 +472,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Jack Price</h3>
-                                <p class="reviewer-meta">Local Guide · 28 reviews</p>
+                                <p class="reviewer-meta">Local Guide � 28 reviews</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -388,10 +488,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Priscilla Short</h3>
-                                <p class="reviewer-meta">Local Guide · 52 reviews · 8 photos</p>
+                                <p class="reviewer-meta">Local Guide � 52 reviews � 8 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">1 month ago</time>
                             </div>
                         </header>
@@ -404,10 +504,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>George Vernau</h3>
-                                <p class="reviewer-meta">Local Guide · 36 reviews · 22 photos</p>
+                                <p class="reviewer-meta">Local Guide � 36 reviews � 22 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-01-15">2 months ago</time>
                             </div>
                         </header>
@@ -425,10 +525,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Michele Rodriguez</h3>
-                                <p class="reviewer-meta">Local Guide · 31 reviews · 12 photos</p>
+                                <p class="reviewer-meta">Local Guide � 31 reviews � 12 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-01-20">2 months ago</time>
                             </div>
                         </header>
@@ -441,10 +541,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>San Juana Puentes</h3>
-                                <p class="reviewer-meta">Local Guide · 18 reviews</p>
+                                <p class="reviewer-meta">Local Guide � 18 reviews</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-15">3 weeks ago</time>
                             </div>
                         </header>
@@ -457,10 +557,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Larry Mouser</h3>
-                                <p class="reviewer-meta">Local Guide · 64 reviews · 24 photos</p>
+                                <p class="reviewer-meta">Local Guide � 64 reviews � 24 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-01-01">2 months ago</time>
                             </div>
                         </header>
@@ -473,15 +573,15 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Gabe Gonzales</h3>
-                                <p class="reviewer-meta">Local Guide · 42 reviews · 8 photos</p>
+                                <p class="reviewer-meta">Local Guide � 42 reviews � 8 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-10">1 month ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
-                            I had a great experience at this Red River Cantina Restaurant! The food was absolutely delicious — the fajitas were sizzling and full of flavor, and the homemade tortillas made all the difference. Our waiter, Dakota, did an outstanding job. He was attentive, friendly, and made sure everything was perfect throughout our meal. His service really made the experience even better. I highly recommend coming here and asking for Dakota — you won't be disappointed!
+                            I had a great experience at this Red River Cantina Restaurant! The food was absolutely delicious � the fajitas were sizzling and full of flavor, and the homemade tortillas made all the difference. Our waiter, Dakota, did an outstanding job. He was attentive, friendly, and made sure everything was perfect throughout our meal. His service really made the experience even better. I highly recommend coming here and asking for Dakota � you won't be disappointed!
                         </blockquote>
                     </article>
 
@@ -489,10 +589,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Stephen Hasara</h3>
-                                <p class="reviewer-meta">Local Guide · 56 reviews · 15 photos</p>
+                                <p class="reviewer-meta">Local Guide � 56 reviews � 15 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-01-10">2 months ago</time>
                             </div>
                         </header>
@@ -505,10 +605,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Lexi Cario</h3>
-                                <p class="reviewer-meta">Local Guide · 29 reviews · 5 photos</p>
+                                <p class="reviewer-meta">Local Guide � 29 reviews � 5 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-05">1 month ago</time>
                             </div>
                         </header>
@@ -524,7 +624,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -540,7 +640,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -556,7 +656,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -572,7 +672,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -588,7 +688,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -604,7 +704,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -625,7 +725,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -641,7 +741,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -654,10 +754,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Theresa Tompkins</h3>
-                                <p class="reviewer-meta">Local Guide · 22 reviews · 11 photos</p>
+                                <p class="reviewer-meta">Local Guide � 22 reviews � 11 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-01-25">1 month ago</time>
                             </div>
                         </header>
@@ -670,10 +770,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Chris Broussard</h3>
-                                <p class="reviewer-meta">Local Guide · 51 reviews</p>
+                                <p class="reviewer-meta">Local Guide � 51 reviews</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2024-11-20">4 months ago</time>
                             </div>
                         </header>
@@ -686,10 +786,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Jennifer May</h3>
-                                <p class="reviewer-meta">Local Guide · 33 reviews · 7 photos</p>
+                                <p class="reviewer-meta">Local Guide � 33 reviews � 7 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2024-12-05">3 months ago</time>
                             </div>
                         </header>
@@ -702,10 +802,10 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Danna Jae</h3>
-                                <p class="reviewer-meta">Local Guide · 48 reviews · 19 photos</p>
+                                <p class="reviewer-meta">Local Guide � 48 reviews � 19 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-20">2 weeks ago</time>
                             </div>
                         </header>
@@ -721,7 +821,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -734,16 +834,16 @@
                         <header class="review-header">
                             <div class="reviewer-info">
                                 <h3>Kelly Howells</h3>
-                                <p class="reviewer-meta">Local Guide · 37 reviews · 20 photos</p>
+                                <p class="reviewer-meta">Local Guide � 37 reviews � 20 photos</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2024-12-15">3 months ago</time>
                             </div>
                         </header>
                         <blockquote class="review-text">
-                            This place is a gem! From the moment we walked in, we felt welcomed, and the service exceeded all expectations. Will, our server, was fantastic—attentive, friendly, and genuinely passionate about the food, guiding us through the menu with ease.
-                            The Diablo Shrimp is an absolute must-try. If you love bold flavors, this dish will blow you away. And don't even get me started on the Fried Avocado—it's crispy, perfectly seasoned, and downright addictive! Both dishes showcase the kitchen's creativity and commitment to quality.
+                            This place is a gem! From the moment we walked in, we felt welcomed, and the service exceeded all expectations. Will, our server, was fantastic�attentive, friendly, and genuinely passionate about the food, guiding us through the menu with ease.
+                            The Diablo Shrimp is an absolute must-try. If you love bold flavors, this dish will blow you away. And don't even get me started on the Fried Avocado�it's crispy, perfectly seasoned, and downright addictive! Both dishes showcase the kitchen's creativity and commitment to quality.
                             If you're looking for a great meal and top-tier service, this is the spot. I'll be back!
                         </blockquote>
                     </article>
@@ -755,7 +855,7 @@
                                 <p class="reviewer-meta">Google Review</p>
                             </div>
                             <div class="review-rating">
-                                <div class="stars">★★★★★</div>
+                                <div class="stars">?????</div>
                                 <time class="review-date" datetime="2025-02-01">Recently</time>
                             </div>
                         </header>
@@ -767,7 +867,7 @@
             </section>
 
             <div class="back-home">
-                <a href="index.html">← Back to Homepage</a>
+                <a href="index.html">? Back to Homepage</a>
             </div>
 
             <p class="reviews-disclaimer">Reviews sourced from Google; displayed verbatim.</p>
@@ -783,12 +883,12 @@
           <p>1911 E. Main St. Suite A</p>
           <p>League City, TX 77573</p>
           <p>281-557-8156</p>
-          <p class="hours">Sunday – Thursday | 11:00 am – 9:00pm · Friday &amp; Saturday | 11:00 am – 10:00pm</p>
+          <p class="hours">Sunday � Thursday | 11:00 am � 9:00pm � Friday &amp; Saturday | 11:00 am � 10:00pm</p>
           <a href="https://www.facebook.com/people/Red-River-Cantina-League-City/100061811121727/" class="social-link">Follow Us</a>
         </article>
 
         <article class="tile reward-tile">
-          <div class="reward-icon">🎁</div>
+          <div class="reward-icon">??</div>
           <h3>Rewards Program</h3>
           <p>Earn points, unlock rewards, get a birthday bonus.</p>
           <a href="https://www.toasttab.com/redrivercantina/rewardsSignup" class="join-btn">Join Now</a>
@@ -808,31 +908,31 @@
 
     <footer class="brand-footer">
       <div class="container footer-brands">
-        <a href="https://redriverbbq.com/league-city/" class="footer-brand-item footer-brand-link" target="_blank" rel="noopener"><div class="footer-brand-item">
+        <a href="https://redriverbbq.com/league-city/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="rrbbqLogo.png" alt="Red River Bar & Grill" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER BAR & GRILL</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
-        </div></a>
-        <div class="footer-brand-item">
+        </a>
+        <a href="/leaguecity/" class="footer-brand-item">
           <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
-        </div>
-        <div class="footer-brand-item">
+        </a>
+        <a href="/richmond/" class="footer-brand-item">
           <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">RICHMOND TX</p>
-        </div>
-        <a href="https://redriverbbq.com/katy/" class="footer-brand-item footer-brand-link" target="_blank" rel="noopener"><div class="footer-brand-item">
+        </a>
+        <a href="https://redriverbbq.com/katy/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="rrbbqbLogo.png" alt="Red River Bar-B-Que & Burger" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER BBQ & BURGER</p>
           <p class="footer-brand-location">KATY TX</p>
-        </div></a>
-        <div class="footer-brand-item">
+        </a>
+        <a href="https://kiershcateringevents.com/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="kiersh co white trans.png" alt="Kiersh & Co." class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">KIERSH & CO.</p>
           <p class="footer-brand-location">CATERING & EVENTS</p>
-        </div>
+        </a>
       </div>
       <div class="container footer-links">
         <a href="careers.html" class="footer-link-btn">CAREERS</a>

@@ -1,13 +1,93 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Red River Cantina | Dine-In Menu</title>
+    <title>Red River Cantina | Dine-In Menu - League City TX</title>
+    <meta name="description" content="View Red River Cantina's dine-in menu featuring authentic Tex-Mex favorites including fajitas, enchiladas, tacos, quesadillas, nachos and more in League City, TX.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="rrcLogo (1).png" />
     <link rel="apple-touch-icon" href="rrcLogo (1).png" />
+    
+    <!-- Structured Data - Menu -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Red River Cantina Dine-In Menu",
+      "description": "Authentic Tex-Mex cuisine served fresh daily",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Antojitos",
+          "description": "Appetizers and starters",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Guacamole", "description": "Pico de gallo & fresh lime juice", "offers": {"@type": "Offer", "price": "9.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Queso Blanco", "offers": {"@type": "Offer", "price": "7.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Maximina's Dip", "description": "Refried beans, chile con queso, beef picadillo, guacamole, pico de gallo & queso fresco", "offers": {"@type": "Offer", "price": "13.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Flautas Con Queso", "description": "Crispy corn tortillas stuffed with ranchero chicken and pepper jack cheese", "offers": {"@type": "Offer", "price": "13.55", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Antojito Sampler", "description": "Beef Fajita Nachos, Chicken Fajita Quesadillas & Chicken Flautas", "offers": {"@type": "Offer", "price": "18.95", "priceCurrency": "USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Nachos & Quesadillas",
+          "description": "Served with guacamole, sour cream & jalapenos",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Nachos Picadillo", "offers": {"@type": "Offer", "price": "13.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Fajita Nachos", "description": "Choice of chicken or beef"},
+            {"@type": "MenuItem", "name": "Fajita Quesadillas", "description": "Choice of chicken or beef"},
+            {"@type": "MenuItem", "name": "Brisket Quesadillas", "description": "Slow-smoked brisket, grated cheese & pico de gallo", "offers": {"@type": "Offer", "price": "16.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Shrimp Quesadillas", "offers": {"@type": "Offer", "price": "16.95", "priceCurrency": "USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Enchiladas Famosas",
+          "description": "Served with Mexican rice and refried beans",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Cheese Enchiladas", "description": "With chile con carne & grated cheese", "offers": {"@type": "Offer", "price": "12.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Enchiladas Al Carbon", "description": "Fajita enchiladas with chile con carne, grated cheese, guacamole & pico de gallo"},
+            {"@type": "MenuItem", "name": "Enchiladas De Carnitas", "description": "Slow-roasted pork carnitas with sour cream sauce", "offers": {"@type": "Offer", "price": "17.95", "priceCurrency": "USD"}}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Fajitas",
+          "description": "Sizzling fajitas served with rice, beans, guacamole, pico de gallo and fresh tortillas",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Chicken Fajitas", "description": "Grilled chicken fajitas"},
+            {"@type": "MenuItem", "name": "Beef Fajitas", "description": "Grilled beef fajitas"},
+            {"@type": "MenuItem", "name": "Combo Fajitas", "description": "Combination of chicken and beef fajitas"},
+            {"@type": "MenuItem", "name": "Shrimp Fajitas", "description": "Gulf shrimp fajitas"}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Combinados",
+          "description": "Build your own combination plates served with rice and beans",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Choose Two", "description": "Pick any two items", "offers": {"@type": "Offer", "price": "14.95", "priceCurrency": "USD"}},
+            {"@type": "MenuItem", "name": "Choose Three", "description": "Pick any three items", "offers": {"@type": "Offer", "price": "16.95", "priceCurrency": "USD"}}
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://redrivercantina.com/"},
+        {"@type": "ListItem", "position": 2, "name": "League City", "item": "https://redrivercantina.com/leaguecity/"},
+        {"@type": "ListItem", "position": 3, "name": "Dine-In Menu", "item": "https://redrivercantina.com/leaguecity/menu/"}
+      ]
+    }
+    </script>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,7 +160,7 @@
         <a href="index.html" class="mobile-menu-logo">
           <img src="RRCBrand.png" alt="Red River Cantina" style="height: 50px;" decoding="async">
         </a>
-        <button class="mobile-menu-close" aria-label="Close Menu">×</button>
+        <button class="mobile-menu-close" aria-label="Close Menu">�</button>
       </div>
       <nav class="mobile-menu-nav">
         <a href="../../index.html" class="mobile-menu-item">Locations</a>
@@ -299,13 +379,13 @@
           </div>
 
           <div class="menu-item highlight">
-            <h3>SLOW-SMOKED BRISKET ENCHILADAS – <span class="guest-favorite">Guest Favorite!</span></h3>
+            <h3>SLOW-SMOKED BRISKET ENCHILADAS � <span class="guest-favorite">Guest Favorite!</span></h3>
             <p class="description">Sour cream sauce, grated cheese & avocado</p>
             <p class="price-line">(2) 17.95</p>
           </div>
 
           <div class="menu-item">
-            <h3>ENCHILADAS MAXIMINA 🌶️</h3>
+            <h3>ENCHILADAS MAXIMINA ???</h3>
             <p class="description">Ranchero chicken enchiladas topped with our habanero & cilantro cream sauce & grated cheese</p>
             <p class="price-line">(2) 16.95</p>
           </div>
@@ -375,13 +455,13 @@
               <strong>JALAPENO CHEESE SAUSAGE</strong> 4.95
             </div>
             <div class="menu-item-inline">
-              <strong>HABANERO & CILANTRO CREAM SAUCE</strong> 1.95 🌶️
+              <strong>HABANERO & CILANTRO CREAM SAUCE</strong> 1.95 ???
             </div>
             <div class="menu-item-inline">
               <strong>SHRIMP BROCHETTE</strong> (3) 10.95
             </div>
             <div class="menu-item-inline">
-              <strong>CHILES TOREADOS</strong> 🌶️<br>
+              <strong>CHILES TOREADOS</strong> ???<br>
               Roasted jalapenos & Habaneros 1.95
             </div>
             <div class="menu-item-inline">
@@ -510,8 +590,8 @@
           </div>
 
           <div class="menu-item">
-            <h3>COSTILLAS – <em>BABY BACK RIBS</em></h3>
-            <p class="description">½ rack of our slow-smoked baby back ribs</p>
+            <h3>COSTILLAS � <em>BABY BACK RIBS</em></h3>
+            <p class="description">� rack of our slow-smoked baby back ribs</p>
             <p class="price">19.95</p>
           </div>
 
@@ -547,7 +627,7 @@
 
           <div class="menu-item">
             <h3>MAHI-MAHI MARISCO</h3>
-            <p class="description">Topped with white wine cream sauce, sautéed shrimp & scallops. Avocado, pico de gallo, refried black beans and cilantro rice</p>
+            <p class="description">Topped with white wine cream sauce, saut�ed shrimp & scallops. Avocado, pico de gallo, refried black beans and cilantro rice</p>
             <p class="price">29.95</p>
           </div>
 
@@ -688,7 +768,7 @@
         <!-- Lunch Features -->
         <section class="menu-section lunch-section">
           <h2 class="section-title fancy">Lunch Features</h2>
-          <p class="section-note red-text">Monday – Friday 11:00am – 3:00pm</p>
+          <p class="section-note red-text">Monday � Friday 11:00am � 3:00pm</p>
 
           <div class="lunch-grid">
             <div class="lunch-column">
@@ -789,12 +869,12 @@
             <p>1911 E. Main St. Suite A</p>
             <p>League City, TX 77573</p>
             <p>281-557-8156</p>
-            <p class="hours">Sunday – Thursday | 11:00 am – 9:00pm · Friday &amp; Saturday | 11:00 am – 10:00pm</p>
+            <p class="hours">Sunday � Thursday | 11:00 am � 9:00pm � Friday &amp; Saturday | 11:00 am � 10:00pm</p>
             <a href="https://www.facebook.com/people/Red-River-Cantina-League-City/100061811121727/" class="social-link">Follow Us</a>
           </article>
 
           <article class="tile reward-tile">
-            <div class="reward-icon">🎁</div>
+            <div class="reward-icon">??</div>
             <h3>Rewards Program</h3>
             <p>Earn points, unlock rewards, get a birthday bonus.</p>
             <a href="https://www.toasttab.com/redrivercantina/rewardsSignup" class="join-btn">Join Now</a>
@@ -815,31 +895,31 @@
 
     <footer class="brand-footer">
       <div class="container footer-brands">
-        <a href="https://redriverbbq.com/league-city/" class="footer-brand-item footer-brand-link" target="_blank" rel="noopener"><div class="footer-brand-item">
+        <a href="https://redriverbbq.com/league-city/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="rrbbqLogo.png" alt="Red River Bar & Grill" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER BAR & GRILL</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
-        </div></a>
-        <div class="footer-brand-item">
+        </a>
+        <a href="/leaguecity/" class="footer-brand-item">
           <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">LEAGUE CITY TX</p>
-        </div>
-        <div class="footer-brand-item">
+        </a>
+        <a href="/richmond/" class="footer-brand-item">
           <img src="rrcLogo (1).png" alt="Red River Cantina" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER CANTINA</p>
           <p class="footer-brand-location">RICHMOND TX</p>
-        </div>
-        <a href="https://redriverbbq.com/katy/" class="footer-brand-item footer-brand-link" target="_blank" rel="noopener"><div class="footer-brand-item">
+        </a>
+        <a href="https://redriverbbq.com/katy/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="rrbbqbLogo.png" alt="Red River Bar-B-Que & Burger" class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">RED RIVER BBQ & BURGER</p>
           <p class="footer-brand-location">KATY TX</p>
-        </div></a>
-        <div class="footer-brand-item">
+        </a>
+        <a href="https://kiershcateringevents.com/" class="footer-brand-item" target="_blank" rel="noopener">
           <img src="kiersh co white trans.png" alt="Kiersh & Co." class="footer-brand-logo" loading="lazy" decoding="async">
           <p class="footer-brand-name">KIERSH & CO.</p>
           <p class="footer-brand-location">CATERING & EVENTS</p>
-        </div>
+        </a>
       </div>
       <div class="container footer-links">
         <a href="careers.html" class="footer-link-btn">CAREERS</a>
