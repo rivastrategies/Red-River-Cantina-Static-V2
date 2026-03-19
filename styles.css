@@ -318,7 +318,7 @@ body {
 .booking-hero {
   min-height: 320px;
   background-image: linear-gradient(rgba(15, 118, 110, 0.65), rgba(15, 118, 110, 0.65)),
-    url('./catering-images1/Red-River-Catering-17-800x533.jpg');
+    url('./catering-images1/Red-River-Catering-17-800x533.webp');
   background-size: cover;
   background-position: center;
 }
@@ -384,7 +384,7 @@ body {
 .home-hero-carousel .slide-1 {
   animation-delay: 0s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Fajitas.jpg');
+    url('./homepagehero/Fajitas.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -393,7 +393,7 @@ body {
 .home-hero-carousel .slide-2 {
   animation-delay: 3s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Cantina Spread.jpg');
+    url('./homepagehero/Cantina Spread.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -402,7 +402,7 @@ body {
 .home-hero-carousel .slide-3 {
   animation-delay: 6s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Tacos Tacos.jpg');
+    url('./homepagehero/Tacos Tacos.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -411,7 +411,7 @@ body {
 .home-hero-carousel .slide-4 {
   animation-delay: 9s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Shrimp Faitas 2.jpg');
+    url('./homepagehero/Shrimp Faitas 2.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -420,7 +420,7 @@ body {
 .home-hero-carousel .slide-5 {
   animation-delay: 12s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Salmon Lobster.jpg');
+    url('./homepagehero/Salmon Lobster.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -429,7 +429,7 @@ body {
 .home-hero-carousel .slide-6 {
   animation-delay: 15s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Lobster Special.jpg');
+    url('./homepagehero/Lobster Special.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -438,7 +438,7 @@ body {
 .home-hero-carousel .slide-7 {
   animation-delay: 18s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Shrimp Salad22.jpg');
+    url('./homepagehero/Shrimp Salad22.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -447,7 +447,7 @@ body {
 .home-hero-carousel .slide-8 {
   animation-delay: 21s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Crawfish ench.jpg');
+    url('./homepagehero/Crawfish ench.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -456,7 +456,7 @@ body {
 .home-hero-carousel .slide-9 {
   animation-delay: 24s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/SPREAD.jpg');
+    url('./homepagehero/SPREAD.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -465,7 +465,7 @@ body {
 .home-hero-carousel .slide-10 {
   animation-delay: 27s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Jara.jpg');
+    url('./homepagehero/Jara.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -474,7 +474,7 @@ body {
 .home-hero-carousel .slide-11 {
   animation-delay: 30s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Salmon Salad Outside.jpg');
+    url('./homepagehero/Salmon Salad Outside.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -483,7 +483,7 @@ body {
 .home-hero-carousel .slide-12 {
   animation-delay: 33s;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('./homepagehero/Sombrero.jpg');
+    url('./homepagehero/Sombrero.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1609,7 +1609,7 @@ body {
 /* Careers page layout and form styles */
 .careers-hero {
   position: relative;
-  background-image: url('LC-location-page.jpg');
+  background-image: url('LC-location-page.webp');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2066,7 +2066,7 @@ body {
 
 .story-hero {
   position: relative;
-  background: url("Groce-Family-History.jpg") center / cover no-repeat;
+  background: url("Groce-Family-History.webp") center / cover no-repeat;
   color: var(--white);
 }
 
