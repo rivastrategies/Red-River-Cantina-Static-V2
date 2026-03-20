@@ -325,6 +325,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitButton = managementForm.querySelector('button[type="submit"]');
       const actionUrl = managementForm.getAttribute('action');
       clearFormStatus(managementForm);
+      
+      // Generate unique subject for Formspree
+      const firstName = formData.get('firstName') || '';
+      const lastName = formData.get('lastName') || '';
+      const name = formData.get('name') || '';
+      const timestamp = new Date().toISOString();
+      let subject = 'Red River Cantina Contact Form';
+      if (firstName && lastName) {
+        subject += ` - ${firstName} ${lastName}`;
+      } else if (name) {
+        subject += ` - ${name}`;
+      }
+      subject += ` - ${timestamp}`;
+      formData.set('_subject', subject);
 
       if (!actionUrl) {
         showFormStatus(managementForm, 'error', 'Unable to submit right now. Please try again in a moment.');
@@ -476,6 +490,16 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const formData = new FormData(partyRoomForm);
       
+      // Generate unique subject
+      const name = formData.get('name') || '';
+      const eventDate = formData.get('eventDate') || '';
+      const timestamp = new Date().toISOString();
+      let subject = 'Red River Cantina Party Room Inquiry';
+      if (name) subject += ` - ${name}`;
+      if (eventDate) subject += ` - ${eventDate}`;
+      subject += ` - ${timestamp}`;
+      formData.set('_subject', subject);
+      
       try {
         const response = await fetch(partyRoomForm.action, {
           method: 'POST',
@@ -617,6 +641,22 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const formData = new FormData(cateringForm);
       
+      // Generate unique subject
+      const firstName = formData.get('firstName') || '';
+      const lastName = formData.get('lastName') || '';
+      const name = formData.get('name') || '';
+      const eventDate = formData.get('eventDate') || '';
+      const timestamp = new Date().toISOString();
+      let subject = 'Red River Cantina Catering Inquiry';
+      if (firstName && lastName) {
+        subject += ` - ${firstName} ${lastName}`;
+      } else if (name) {
+        subject += ` - ${name}`;
+      }
+      if (eventDate) subject += ` - ${eventDate}`;
+      subject += ` - ${timestamp}`;
+      formData.set('_subject', subject);
+      
       try {
         const response = await fetch(cateringForm.action, {
           method: 'POST',
@@ -646,6 +686,30 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const formData = new FormData(form);
       
+      // Generate unique subject based on form type
+      const firstName = formData.get('firstName') || '';
+      const lastName = formData.get('lastName') || '';
+      const name = formData.get('name') || '';
+      const timestamp = new Date().toISOString();
+      
+      // Determine form type from action URL or form data
+      const action = form.action || '';
+      let formType = 'Contact Form';
+      if (action.includes('mojkwnbp') || formData.get('form_name') === 'Careers') {
+        formType = 'Careers Application';
+      } else if (action.includes('xjgarabb') || formData.get('form_name') === 'Community') {
+        formType = 'Community Spirit Night Application';
+      }
+      
+      let subject = `Red River Cantina ${formType}`;
+      if (firstName && lastName) {
+        subject += ` - ${firstName} ${lastName}`;
+      } else if (name) {
+        subject += ` - ${name}`;
+      }
+      subject += ` - ${timestamp}`;
+      formData.set('_subject', subject);
+      
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -666,4 +730,107 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Reservation Modal
+  const RESERVATION_MODAL_ID = 'reservation-modal';
+  let reservationLastFocused = null;
+
+  const closeReservationModal = () => {
+    const modal = document.getElementById(RESERVATION_MODAL_ID);
+    if (!modal) return;
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    body.style.overflow = '';
+
+    if (reservationLastFocused && typeof reservationLastFocused.focus === 'function') {
+      reservationLastFocused.focus();
+    }
+  };
+
+  const openReservationModal = () => {
+    const modal = document.getElementById(RESERVATION_MODAL_ID);
+    if (!modal) return;
+
+    reservationLastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.style.overflow = 'hidden';
+
+    const firstInput = modal.querySelector('input, select, textarea');
+    window.requestAnimationFrame(() => {
+      if (firstInput) firstInput.focus();
+    });
+  };
+
+  // Reservation modal triggers
+  document.querySelectorAll('[data-reservation-open]').forEach((btn) => {
+    btn.addEventListener('click', openReservationModal);
+  });
+
+  const reservationModal = document.getElementById(RESERVATION_MODAL_ID);
+  if (reservationModal) {
+    reservationModal.addEventListener('click', (event) => {
+      if (event.target === reservationModal) {
+        closeReservationModal();
+      }
+    });
+
+    reservationModal.querySelectorAll('[data-reservation-close]').forEach((btn) => {
+      btn.addEventListener('click', closeReservationModal);
+    });
+  }
+
+  // Handle reservation form submission
+  const reservationForm = document.getElementById('reservation-form');
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(reservationForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Generate unique subject
+      const name = formData.get('name') || '';
+      const date = formData.get('date') || '';
+      const timestamp = new Date().toISOString();
+      let subject = 'Red River Cantina Reservation Request';
+      if (name) subject += ` - ${name}`;
+      if (date) subject += ` - ${date}`;
+      subject += ` - ${timestamp}`;
+      formData.set('_subject', subject);
+      const messageDiv = document.getElementById('reservation-message');
+
+      messageDiv.textContent = 'Submitting your reservation...';
+      messageDiv.className = 'reservation-form__message reservation-form__message--info';
+
+      try {
+        const response = await fetch('/api/reservations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          messageDiv.textContent = 'Thank you! Your reservation request has been submitted. We will contact you shortly to confirm.';
+          messageDiv.className = 'reservation-form__message reservation-form__message--success';
+          reservationForm.reset();
+          
+          setTimeout(() => {
+            closeReservationModal();
+            setTimeout(() => {
+              messageDiv.textContent = '';
+              messageDiv.className = 'reservation-form__message';
+            }, 300);
+          }, 3000);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        messageDiv.textContent = 'Unable to submit reservation at this time. Please call us at 281-557-8156 to make a reservation.';
+        messageDiv.className = 'reservation-form__message reservation-form__message--error';
+      }
+    });
+  }
 });
